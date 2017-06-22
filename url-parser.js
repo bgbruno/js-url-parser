@@ -39,6 +39,3 @@ function parseURL(url) {
     };
     
 }
-
-console.log(parseURL('#'));
-console.log(document.location.href);
