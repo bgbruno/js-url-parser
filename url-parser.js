@@ -2,7 +2,7 @@
 // url parser
 // thx http://james.padolsey.com/javascript/parsing-urls-with-the-dom
 // thx https://davidwalsh.name/get-absolute-url
-// updated @2013, @2017 ^bg
+// updated ^bg @2018, @2017, @2013
 function parseURL(url) {
     
     var a =  document.createElement('a');
