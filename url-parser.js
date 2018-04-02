@@ -13,7 +13,9 @@ function parseURL(url) {
         pathName: a.pathname,
         absoluteUrl: a.href = a.pathname,
         protocol: a.protocol.replace(':',''),
-        host: a.hostname,
+        domainHost: url.split('/')[2],
+        domain: url.split('/')[2].split('.')[2] ? url.split('/')[2].split('.')[1] + '.' + url.split('/')[2].split('.')[2] : url.split('/')[2],
+        domainTld: url.split('/')[2].split('.')[2] ? url.split('/')[2].split('.')[2] : url.split('/')[2].split('.')[1],
         port: a.port,
         query: a.search,
         params: (function(){
