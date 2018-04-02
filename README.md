@@ -8,6 +8,7 @@
 ```js
 console.log(parseURL('#'));
 console.log(parseURL(document.location.href));
+console.log(parseURL('https://console.webcloud.io/index.html'));
 ```
 
 output
