@@ -18,7 +18,6 @@ hash:        ""
 domainHost:  "console.webcloud.io",
 domain:      "webcloud.io"
 domainTld:   "io"
-host:        "console.webcloud.io"
 params:      Object
 path:        "/index.html"
 pathName:    "/index.html"
