@@ -15,6 +15,9 @@ output
 absoluteUrl: "/index.html"
 file:        "index.html"
 hash:        ""
+domainHost:  "console.webcloud.io",
+domain:      "webcloud.io"
+domainTld:   "io"
 host:        "console.webcloud.io"
 params:      Object
 path:        "/index.html"
