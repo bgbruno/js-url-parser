@@ -2,6 +2,7 @@
 
 ### Usage
 
+input
 ```html
 <script src="url-parser.js"></script>
 ```
