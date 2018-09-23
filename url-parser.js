@@ -1,24 +1,49 @@
-
 // url parser
 // thx http://james.padolsey.com/javascript/parsing-urls-with-the-dom
 // thx https://davidwalsh.name/get-absolute-url
 // updated ^bg @2018, @2017, @2013
-function parseURL(url) {
+
+
+function url_parameterByName_get(name, url) {
     
-    var a =  document.createElement('a');
-    a.href = url
+    if (!url) {
+        url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
     
-    return {
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+    var results = regex.exec(url);
+    
+    if (!results) {
+        return null;
+    }
+    if (!results[2]) {
+        return '';
+    }
+    
+    var ret = decodeURIComponent(results[2].replace(/\+/g, " "));
+    
+    return ret;
+    
+}
+
+function url_parse(url) {
+    
+    var a = document.createElement('a');
+    a.href = url;
+    
+    var parsedObject = {
+        
         source: url,
         pathName: a.pathname,
-        absoluteUrl: a.href = a.pathname,
+        absoluteUrl: a.pathname,
         protocol: a.protocol.replace(':',''),
         domainHost: url.split('/')[2],
         domain: url.split('/')[2].split('.')[2] ? url.split('/')[2].split('.')[1] + '.' + url.split('/')[2].split('.')[2] : url.split('/')[2],
         domainTld: url.split('/')[2].split('.')[2] ? url.split('/')[2].split('.')[2] : url.split('/')[2].split('.')[1],
         port: a.port,
         query: a.search,
-        params: (function(){
+        params: (function() {
             
             var ret = {},
                 seg = a.search.replace(/^\?/,'').split('&'),
@@ -38,6 +63,9 @@ function parseURL(url) {
         path: a.pathname.replace(/^([^\/])/,'/$1'),
         relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
         segments: a.pathname.replace(/^\//,'').split('/')
+        
     };
+    
+    return parsedObject;
     
 }
