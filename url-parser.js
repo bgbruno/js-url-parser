@@ -4,7 +4,7 @@
 // updated ^bg @2018, @2017, @2013
 
 
-function url_parameterByName_get(name, url) {
+function url_parameterByName_get(url, name) {
     
     if (!url) {
         url = window.location.href;
