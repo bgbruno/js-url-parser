@@ -7,9 +7,10 @@ input
 <script src="url-parser.js"></script>
 ```
 ```js
-console.log(parseURL('#'));
-console.log(parseURL(document.location.href));
-console.log(parseURL('https://console.webcloud.io/index.html'));
+console.log(url_parse('#'));
+console.log(url_parse(document.location.href));
+console.log(url_parse('https://console.webcloud.io/index.html'));
+console.log(url_parameterByName_get('https://www.youtube.com/watch?v=Tz1hhx8yxyU&feature=youtu.be&t=1m9s', 'v');
 ```
 
 output
